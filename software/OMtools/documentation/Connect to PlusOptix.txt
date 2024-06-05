@@ -1,0 +1,11 @@
+As documented, PlusOptix requires you to shut down the application to access the recorded data. This is a tremendous waste of time, especially if you need to check something about your data between recordings. Instead, you can ssh over ethernet from your analysis computer into the PlusOptix to access the directory where the data is stored:
+NOTE: the IP address of the PlusOptix may be different in your setup. 
+
+$ ssh root@1.1.1.3:/home/plusoptix/plusoptix/Video
+
+Eye-movement data files are stored as pseudo CSVs, named by subject ID string with the datetime appended. (Their data format is a mess. See comments in 'po_analyze.m' for a rational, completely unemotional diatribe and description. TL;DR: semicolons as delimiter, and all data enclosed in double quotes.)
+
+Use scp to copy the files to your analysis computer. MacOS example:
+$ scp root@1.1.1.3:/home/plusoptix/plusoptix/Video/fg1016* ~/desktop/temp/
+
+This will copy all data files beginning with the subject ID 'fg1016' to a temporary folder on your analysis computer's desktop.

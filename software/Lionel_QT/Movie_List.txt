@@ -1,0 +1,26 @@
+INS_"CN"
+
+lfd1cysm3xb.mov - [Half Speed] One cycle PPfs showing extended foveation period
+lfd3cyhs3xb.mov - [Half Speed] Three cycles PPfs showing alignment of foveation periods
+lfd3cypvpp2tb.mov - [Half Speed] Three cycles PPfs showing pos, vel, & phase plane
+lfd3cypvpp5tb.mov - [1/5 Speed] Three cycles PPfs showing pos, vel, & phase plane
+								Demonstrates pause in foveation window
+lfdHTSSN2tb.mov - [Half Speed] ~Three sec PPfs showing H, V, and T pos
+								Demonstrates H and T (using RED markers)
+lfdSSN5x2tb.mov - [Half Speed, 5x amplitude] ~Three sec PPfs showing only V pos
+								Demonstrates subclinical SSN (fixate on nasium)
+jdsStepConvb.mov - [Full Speed] ~Six sec INS showing H pos & Convergence damping
+
+
+FMNS_"LMLN"
+
+SimACTET2tb.mov - [Half Speed] OMS Model Simulation, ~Three sec FMNS w ET
+							Showing alternate cover effect &
+							Hi-Amplitude, defoveating fast phases
+FMN_30n20saccb.mov - [Half Speed] OMS Model Simulation, ~Three sec FMNS w ET
+							Showing Alexander's law gaze-angle effect w automatic switching
+							between Lo-amplitude, foveating fast phases &
+							Hi-Amplitude, defoveating fast phases
+FMN_AddEyeFxb.mov - [Half Speed] OMS Model Simulation, ~Five sec FMNS w ET
+							Showing Adducting Eye Fixation effect automatic switching to
+							allow fixation with the adducting eye

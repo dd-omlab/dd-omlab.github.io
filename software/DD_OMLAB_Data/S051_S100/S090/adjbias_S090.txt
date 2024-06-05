@@ -1,0 +1,27 @@
+
+% S090
+
+
+S090_1.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S090_2.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S090_3.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S090_4.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S090_5.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S090_6.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1

@@ -1,0 +1,1 @@
+JWB(2-7).DAT headers are incorrect.  The sampling frequency (SPLF) should be 400 Hz.JBW1.DAT has the correct header and SPLF is 200 Hz. After loading files 2-7, correct SPLF using, samp_freq = 2*samp_freq;

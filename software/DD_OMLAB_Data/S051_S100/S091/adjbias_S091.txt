@@ -1,0 +1,156 @@
+% S091
+% coil
+% 20 sec @ 400 Hz = 8000 points
+% Files; 1-be 0±20; 2-re 0±20; 3-le 0±20; 4-be 0; 5-be/re/le/be 0; 6-vrg f>n>f; 
+% 		7-vrg f/n/f/n/f; 8-sp ±20; 9-hvor drk; 10-11-hvor lgt w 0 target; 
+%		12-5° steps 0>-20; 13-5° steps 0>20; 14-steps 0>-20>-25>-30; 15-steps 0>20>25>30
+
+S091_1.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_2.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_3.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_4.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_5.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_6.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_7.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_8.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_9.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_10.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_11.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_12.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_13.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_14.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67
+
+S091_15.lab 8 coil labview
+rh 15.42
+lh -0.44
+hh 0
+rv 2.16
+lv 4.54
+hv 0
+rt 3.87
+lt -13.67

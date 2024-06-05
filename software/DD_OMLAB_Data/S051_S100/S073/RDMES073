@@ -1,0 +1,5 @@
+S073_(1-7).DAT headers are incorrect.  
+The sampling frequency (SPLF) should be 400 Hz.
+S073_8.DAT has the correct header and SPLF is 200 Hz.
+After loading files 1-7, correct SPLF as follows:
+	samp_freq = 2*samp_freq;

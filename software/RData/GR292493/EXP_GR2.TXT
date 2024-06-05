@@ -1,0 +1,25 @@
+RIGHT EYE
+001- 002) rightward and leftward full-field OK not stabilized stimulus 10ø/sec. [15" x 2]
+003- 004) rightward and leftward full-field OK stabilized stimulus 10ø/sec. [15" x 2]
+005- 006) rightward and leftward OK stabilized stimulus 10ø/sec in temporal field. [15" x 2]
+007- 008) rightward and leftward OK stabilized stimulus 10ø/sec in far temporal field. [15" x 2]
+009- 010) rightward and leftward OK stabilized stimulus 10ø/sec in nasal field. [15" x 2]
+011- 012) rightward and leftward OK stabilized stimulus 10ø/sec in far nasal field. [15" x 2]
+
+LEFT EYE
+013- 014) rightward and leftward full-field OK not stabilized stimulus 10ø/sec. [15" x 2]
+015- 016) rightward and leftward full-field OK stabilized stimulus 10ø/sec. [15" x 2]
+017- 018) rightward and leftward OK stabilized stimulus 10ø/sec in nasal field. [15" x 2]
+019- 020) rightward and leftward OK stabilized stimulus 10ø/sec in far nasal field. [15" x 2]
+021- 022) rightward and leftward OK stabilized stimulus 10ø/sec in temporal field. [15" x 2]
+023- 024) rightward and leftward OK stabilized stimulus 10ø/sec in far temporal field. [15" x 2]
+
+BOTH EYES
+025- 026) rightward and leftward full-field OK not stabilized stimulus 10ø/sec. [15" x 2]
+027- 028) convergence on a point moving along longitudinal axis.  [15" x 2]
+
+029- 034) fixation of a static target at 0ø,+5ø, +10ø, +15ø, +20ø, +25ø from primary position (1-6). [15" x 6]
+035- 040) fixation of a static target at 0ø, -5ø, -10ø, -15ø, -20ø, -25ø from primary position (1-6). [15" x 6]
+041) pursuit 10ø/sec, {SYMBOL 177 \f "Symbol"} 25ø (22). [60" x 1]
+
+Coil #08 on right eye; coil #07 on left eye

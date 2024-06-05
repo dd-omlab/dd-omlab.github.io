@@ -1,0 +1,475 @@
+OMtools change log:
+
+05 Apr 2024:
+Fixed case in 'readbias' where scanning the biasfile for the data filename could get stuck in an infinite loop. Added a break to exit loop.
+Removed customized 'questdlg' from utils folder. It is no longer needed.
+
+20 Mar 2024:
+'readbias' now checks if target record name occurs more than once. If so, check all candidates for one that is NOT on a commented line.
+
+14 Feb 2024:
+Changes to 'readbias' and 'applybias' to fix crash if comment lines appear after the filename header lie in the adjust bias file. This will let you add comment lines within the channel names block.
+Fixed 'rd' call to 'tgt_recon' to ensure that file extension is stripped before being passed.
+Fixed 'tgt_recon' to ensure that input file's extension is stripped if accidentally passed in.
+
+19 Dec 2023:
+No longer will try to copy 'edf2asc' from Eyelink developer kit directory to 'rd' directory. No longer necessary as we now have better checking for dev kit presence.
+
+18 Dec 2023:
+Added better error checking to 'edf2bin' to detect for presence of Eyelink Developer Kit software, needed for processing EDF files. Will warn if not present, and will direct user to check the platform-appropriate directory on their computer, and to download it from the SR-Support website.
+
+07 Aug 2023: 
+Renamed "skewness" (OMtools/analysis) to "sacc_skewness" to eliminate a name conflict with a MATLAB Statistics toolbox function. Changed calls in "checkpts" (OMtools/rd) to reflect the change.
+
+27 Mar 2023:
+Fix to 'omcheck' to ignore invisible server copy of identification file (begins with ".")
+
+05 Dec 2022:
+fixes to 'fprintf2' to check for invalid target file.
+
+29 Nov 2022:
+Fix in 'tgt_recon': Warns and ignores case when no .whenML or .when time in tgtpos.
+
+29 Aug 2022:
+Fixed rare error in 'datstat.mlapp' when loading data. (Cast app.lastreadclick to int64 to avoid type mismatch.)
+
+24 Aug 2022:
+Updated 'datstat.mlapp'
+Created 'deblink_set.mlapp' to set and display deblink parameters.
+Updated 'zoomtool' to better display names for data lines (e.g. 'rh', etc) if they have been assigned to the 'DisplayName' property (in addition to existing 'Tag' functionality)
+Updated 'cal' to assign channel names to each line's 'DisplayName' property as well as its 'Tag'.
+
+19 Jul 2022:
+Added 'find_crossings' to 'utils'. Detects indices when a vector's values cross a given threshold.
+
+13 Jul 2022:
+'ao_deblink' properly initializes and saves all settings. Better titles on debugging figs.
+
+12 Jul 2022:
+'deblink_set.mlapp' now saves/restores checkbox settings, adds settable streak window width control.
+'ao_deblink' now respects 'use_pos','use_vel','use_acc','use_spread' checkboxes.
+
+05 Jul 2022:
+Created 'deblink_set.mlapp' to view/modify parameters for 'ao_deblink'
+Added 'deblink_set' button to 'datstat.mlapp'
+
+28 Jun 2022:
+Simplified 'ao_deblink' to use fixed pos,vel,acc limits, rather than attempting to calculate statistical limits.
+P = +/-50, V = +/-850, A = +/-35000.
+
+12 Jun 2022:
+Updated 'edf2bin' to calculate and store separate hor and vrt saccade info, and calc and store the 2D angle for hv saccades.
+Fixes to 'pltv', 'pltv_vel'
+
+23 May 2022:
+'addfocus': added quoted quotes ('''') to actions 'focuslost' and 'focusgained' for eval(cmdname).
+'nafx','nafxAct','nafxGUI': replaced calls to 'findme' for nafx window with 'findwind', using 'Tag'.
+
+13 May 2022:
+Added 'plth_vel','pltv_vel','plthv_vel' to /labels. Plot of velocity vs time.
+'zoomclr': fixed handle deletion errors.
+'xaxshift','xaxscale' now shift text labels, surfaces, and patches.
+Added 'yaxshift','yaxscale' based on x-versions.
+
+25 Apr 2022:
+Added 'dd' channel to 'emd_extract' exporting to base workspace. 
+Fixes to 'applybias' and 'readbias' to more gracefully handle malformed applybias files.
+Fix to 'datstat.mlapp' to be slightly more informative if 'rd' barfs.
+Minor syntax fix to 'getnextl'. ('|' to '||')
+
+22 Apr 2022:
+'edf2bin' now checks for a previous "edf_error.txt" warning file left by a previous failed attempt to import an EDF file. If it finds one, it will ask if you wish to delete it and continue the import.
+
+12 Apr 2022:
+'rd' now calls 'tgt_recon' with the full pathname of the desired '_results.mat' file. This will prevent the need to select from every possible file that matches the targeted file.
+
+08 Apr 2022:
+Moved 'drawstim','timed_draw' back to EL_suppt install
+Added 'warnbeep','errorbeep' to utils
+
+11 Mar 2022:
+New URLs for 'dev' and 'stable' on Box drive.
+
+10 Mar 2022:
+Updates to 'drawstim' (and 'EL_suppt/parse_trialtext')
+
+03 Mar 2022:
+'edf2bin' detects, notifies and aborts if there is a space in the file's pathname.
+
+28 Feb 2022:
+'edf2bin' handles missing directories more gracefully.
+
+25 Feb 2022:
+'edf2bin' can now detect if an EDF file is corrupted, and abort with an error message.
+
+22 Feb 2022:
+Added 'movie:' to 'utils/stimgens/drawstim'
+
+10 Feb 2022:
+Fix to unspecified 'angles' input value in 'getsegs'.
+
+04 Feb 2022:
+Fixes to all vrgcal-related functions: 'vrgcal_apply', 'getsegs', 'vrgcal', 'vrgcal_gui.mlapp', 'vrgcal_get'. Now applies multiplanar biases to all data segments, not just explicitly calibrated straight-ahead segments. NOTE: this is simply applying the same bias to off-center targets as to central ones. Probably accurate, but not explicitly proven.
+
+31 Jan 2022:
+Change to 'vrgcal_apply'. Now uses a list for INCLUDED channels (rh,lh,rv,lv), rather than blocking EXCLUDED channels.
+
+26 Jan 2022:
+Added more tooltips to 'datstat'.
+
+25 Jan 2022:
+Created 'emcopy', to make NEW, UNIQUE emData variable from existing one. Because emData is a handle-derived class, simply trying to copy it with an assignment, e.g. 'emd1 = emd' will only create a REFERENCE to emd, so any changes made to emd1 would in reality, change emd.
+Updated 'vrgcal_apply','vrgcal_gui' to properly use COPY of un-vrg-calibrated data to create vrg-calibrated data in base workspace.
+Updated 'vrgcal_gui' to ignore already-vrg-calibrated data.
+
+23 Jan 2022:
+Updated 'vrgcal_apply.mlapp' to enable/disable deblinking of data to be analyzed.
+Updated 'vrgcal_apply','getsegs' to display start/stop lines for distance/cal segments. Also now creates a '_vcal' variable in base workspace that has position data updated to show effects of vergence adjustment.
+
+19 Jan 2022:
+Updates to 'rd','edf2bin','parsesaccfile','parsefixfile','parseblinkfile'.
+Additional documentation about '_extras.mat' and emData structures.
+New graphing function: 'hggcopy' allows copying of HG group structures to a new figure. (Includes test function 'hggtest'.)
+
+07 Jan 2022:
+Fixed 'zoomtool' so line checkboxes properly reflect initial visibility.
+Added better help to 'edf2bin'.
+
+29 Dec 2021:
+IMPORTANT UPDATE TO EDF2BIN!
+Fixes START times for SACC, FIX, BLINK, by directly recording START, rather than subtracting DUR from END to get START. This is *probably* not critical, though it could cause times to be shifted by one sample (true start=end-dur+1)
+
+To remedy: rerun edf2bin to generate new .bin file. You do NOT need to replace the existing _adjbias.txt file (Enter 'n' when prompted to replace it).
+Even if you are not using the Eyelink-generated timings in your analyses, you should still regenerate the .bin file if you might ever want to use the Eyelink-derived SACC, FIX and BLINK timings.
+
+Added 'xaxscale' to 'utils' folder. Updated xaxshift to use modern Handle Graphics.
+
+02 Aug 2021:
+Updated 'edf2bin' to ensure that EDF filename is also a legal variable name.
+
+29 Jul 2021:
+Fix to 'findHotW' to properly ignore OMrecord-type experimental GUIs.
+Updated 'findwind' to suppress message when window has no name.
+
+20 Jul 2021:
+OMrecord script 'nystag_screen.scr' tested and works.
+Fixes to 'utils/drawstims/drawstim' for LED case
+
+15 Jul 2021:
+'utils/drawstims/drawstim' displays target duration for xy: stims
+
+12 Jul 2021:
+Updated 'stimgen'
+Updated 'omcheck','opmath','omstart'
+Updated 'EXAMPLE_startup'
+
+28 Jun 2021:
+Updates to 'findwind','findHotW','findme' to use 'allchild'.
+Created 'findAPPwind'
+
+28 May 2021:
+Synchronized "dev" and "stable" releases.
+
+08 May 2021:
+Fixes to 'datstat' and 'tgt_recon' allows loading pre-2020 data
+
+03 May 2021:
+Update to 'datstat.mlapp'.
+Updates to 'stimgen', 'drawdot', 'drawcross'. 
+Added 'drawstim', 'timed_draw' (testing).
+
+19 Apr 2021:
+Fixes to 'applybias','edf2bin'
+
+16 Apr 2021:
+Changes to: 'rd','applybias','rd_labv','readbias','ourlvhdr' to enable reading of files where header list of data channels is in different order than adjbias file channel listing.
+Updated 'edf2bin','emData' to include "dd" distance from EL1000 camera to subject head sticker.
+
+29 Mar 2021:
+Fixes to 'edf2bin' for pupils.
+
+24 Mar 2021:
+Split into 'stable' and 'develop' branches. Updated 'omcheck' (archived as 'omcheck_old')
+Added 'despike' to 'utils'.
+Updated to incorporate pupil data: 'emData','edf2bin','rd'
+Added storage of data record ending time to 'emData','edf2bin'
+Minor fixes to ''datstat.mlapp','tgt_recon',parsefixfile','parseblinkfile','parsesaccfile'
+
+02 Mar 2021:
+Added 'stimgens' folder to 'utils'. This contains all the files used to generate stimulus files.
+
+25 Feb 2021:
+Updated to 'tgt_recon' to handle line-ending characters between different platforms.
+
+29 Dec 2020:
+Update to 'tgt_recon'
+
+25 Dec 2020:
+Updates to most of "vrgcal"-related files.
+Update to 'omcheck'
+
+18 Dec 2020:
+Test version of 'omtimers' that will run omstart and fgstart daily
+
+14 Dec 2020:
+Updates to most of "vrgcal"-related files.
+Updates to 'vis_ang.mlapp', 'dist2conv_gui.mlapp'. (Hint: basically the same app at this point.)
+Update to 'mlw_verify.sh' macOS shellscript to detect multiple MATLABWindow instances.
+Update to 'ML_W_switch'
+
+08 Dec 2020:
+Updates to 'omstart', 'omcheck'
+
+05 Dec 2020:
+Fixes to 'edf2bin', 'tgt_recon'.
+
+04 Dec 2020:
+More updates to test of vergence calibration functions in 'rd'
+Auto-installation of SR's 'edf2asc' executable into 'rd' (if necessary)
+
+03 Dec 2020:
+More updates to test of vergence calibration functions in 'rd'
+
+02 Dec 2020:
+Updates to test of vergence calibration functions in 'rd'
+
+01 Dec 2020:
+Added test of vergence calibration functions to 'rd'
+
+23 Nov 2020:
+Multiple updates and additions in 'rd' directory to incorporate calibration of vergence data.
+  Update to 'datstat','findfilepath','biasgen'
+  Fixes to 'tgt_recon','edfbiasgen'
+Improved autosetup for macOS:
+  Updated 'ML_W_switch'. Added shell script 'mlw_verify.sh','mlw_dummy.mlapp'.
+Update to 'proclinec'
+  
+03 Nov 2020:
+fixes to 'ml_w_switch', 'findwind'
+
+26 Oct 2020:
+'omstart' now looks at box.com for updated versions.
+
+19 Oct 2020:
+'omstart' checks if 'ML_W_switch' is properly installed and guides you through setting it up.
+
+12 Oct 2020:
+Added 'omtools_version' to root of OMtools.
+'omstart','ompath','findomtools' updated to show OMtools version date.
+'setomtools' deprecated.
+
+5 Oct 2020:
+'tgt_recon' has been moved to 'rd' directory where it belongs.
+
+1 Oct 2020:
+Added two utilities: 'centerOnWindow' and 'questdlg' (an update of ML built-in fn)
+Fix to 'chooseKB'
+
+23 Sep 2020:
+Fixes to 'edf2bin','datstat','rd','applybias' to work properly with Eyelink head position.
+Fix to 'lpf' to handle missing/NaN data.
+
+15 Sep 2020:
+Updated 'findztprefs','findomprefs','findomtools' to work with MATLAB Online.
+Updated 'ML_W_switch'
+Updated 'rd','datstat','edf2bin'
+Created 'rdg' as alias to 'datstat'
+
+23 Jun 2020:
+Fix to head position in 'edf2bin'
+
+12 Jun 2020:
+Update to 'cal' to include hor and vert head position calibration
+
+18 May 2020:
+Updates to 'edf2bin' and 'rd' now parse and load hor and vert head position in EDF files
+
+13 Apr 2020:
+Minor cleaning in 'edf2bin','findomtools','ompath','dataroot'
+
+25 Mar 2020:
+Less-major fix to 'chooseKB' for "force check all" mode
+
+18 Mar 2020:
+Major fix to 'chooseKB' for "force check all" mode
+
+4 Mar 2020:
+Fixes to 'edf2bin', 'parsesaccfile', 'rd', 'findfilepath'
+Fix to 'ML_W_switch'
+
+15 Oct 2019:
+Fixed error in 'axisedit' that prevented it from editing axes.
+
+8 Oct 2019:
+Peggy updated 'grapcopy' to allow copying of errorbars.
+
+1 Oct 2019:
+Updates to 'findwind','findHotW','axisedit','aEditAct' to properly handle window focus.
+
+27 Sep 2019:
+Updated all analysis .mlapps to prevent OMmenu from being added to control windows.
+Updated 'nafxAct' to work better when its control window gains/loses system focus.
+Fixes to 'findHotW'.
+Peggy fixed something in 'edf2bin'. Don't recall what.
+Fixes to self-recognition of 'datstat' and 'rd'
+Test: added focus gain/loss abilities to 'axisedit', 'aEditAct'
+
+18 July 2019:
+Updated 'nafxAct' for better communication with 'datstat'.
+
+11 July 2019:
+Fixes to 'nafx_gui', 'select_emdata', 'find_loaded_emdata'.
+
+7 July 2019:
+Fixes to 'datstat' and 'select_emdata'. 'addfocus' can now use function handles with a
+variable list of arguments.
+
+3 July 2019:
+Fixed 'cPickAct' to work with updated 'whatcolor'.
+
+30 June 2019:
+Replaced old 'nafx_gui','nafxAct' data-selection code with 'select_emdata'.
+Fixed rare case in 'select_emdata' where no result (empty case) was returned.
+
+29 June 2019:
+fixed 'nafx_gui' not able access 'samp_freq' in base workspace.
+
+26 June 2019:
+fix to 'led_recon' to output null if no dig data present
+fix to 'select_emdata' to handle cancellation of reading new data
+update to 'datstat' to set 'lastloaded' field to [] if cancellation of reading new data
+
+24 June 2019:
+multiple fixes to 'select_emdata' and 'find_loaded_emdata'. Cleaned up 'addfocus'.
+
+21 June 2019:
+'eyeballs3d' and 'ebAct3D' now automatically detect all loaded emData, and to allow
+   selecting desired data using a dynamically updated popup menu, allowing you to switch
+   between any loaded data files. This ability comes through the use of two new data-access
+   functions: 'find_loaded_emdata' and 'select_emdata'. Additionally, the menu will auto update
+   whenever the Control window comes to the foreground, through the use of 'addfocus',
+   located in the OMtools/utils directory.
+
+18 June 2019:
+HUGE PROJECT: 'eyeballs3d' and all support files have been modernized for HG2. 
+   Also integrated with 'rd' and 'datstat'.
+   Live slider updating. 
+   More control over plotting; expanded set of preferences, better organized.
+'dragger','whatcolor','grapconsts','aEditAct','lEditAct','tEditAct','linedit' updated for better
+   color selection and setting.
+'rd' and 'datstat' updated for tighter integration (rd can now inform datstat that new data 
+   has been loaded)
+'nameclean' fixed handling '\' character.    
+
+6 June 2019:
+'axisedit','aEditAct' modernized for HG2; scrollable and resizable.
+
+5 June 2019:
+Added 'OMmenu', which adds a menu with the graphics-editing functions to any figure window.
+   Automatically invoked when calling any of those functions.
+   Cleaned and modernized 'dragger','draggy','draw' and 'gDraw'. 
+   Fixed incidental bugs and cosmetic issues.
+
+3 June 2019:
+Fancy new colors for plotting and text!
+   Fixes and expansion of 'whatcolor' and 'grapconsts'. Adds MATLAB's default plotting colors.
+   You can now enjoy Vivid Violet, Sushi and more!
+   Updates to 'textedit','linedit','tEditAct' and 'lEditAct' to use this.
+
+31 May 2019:
+'textedit','linedit' callbacks converted from awkward, old-style strings to modern function handles.
+   Mouse wheel scrolling fine tuned for better performance.
+   New (small) function 'drawable_area' finds max usable screen area (accounts for menu bars
+   and MacOS dock)   
+
+29 May 2019:
+'textedit' and 'linedit' are now scrollable using mouse wheel. 
+   Most cosmetic glitches fixed.
+   Also remember their window height when saving (with "Done" and "Update" buttons).
+
+27 May 2019:
+'tEditAct','lEditAct' gutted and modernized.
+'textedit','tEditAct' errors addressing tick size and color fixed. Saving textedit window fixed.
+
+26 May 2019:
+'linedit' and 'textedit' are now resizable and scrollable! (may have minor cosmetic glitches.)
+'axisedit' fixed to allow extra colors.
+'tEditAct' handles converted to structure.
+
+17 May 2019:
+'findsaccs' now properly verifies presence/absence of the 'Findsaccs Control' window.
+
+16 May 2019:
+'linedit' now recognizes bars.
+'linedit' can now modify alpha-channel translucency for surfaces, patches and bars.
+
+15 May 2019:
+'emd_extract' properly assigns all EMD structure channels into base workspace.
+
+13 May 2019:
+'objcopy' and 'grapcopy' can now recognize and copy 'bar'-type objects.
+
+17 April 2019:
+Created 'swj' (in dev) to detect square-wave jerks using 'findsaccs' output.
+   Can run it from 'findsaccs_gui'.
+'findsaccs' no longer includes "saccades" that are way too brief.
+'findsaccs_gui' cosmetic and functional updates.
+'zoomtool' cosmetic fix to widen controls for indicating active line.
+
+5 April 2019:
+'isdigit' now properly returns 0 if no digits in the string.
+
+2 April 2019:
+Cosmetic updates to 'textedit'.
+
+28 March 2019:
+fixed:
+'linedit', 'lEditAct'  fixed detection of active window.
+'textedit','tEditAct'   ''           ''
+'grapcopy' respects Visibility property of copied objects.
+
+'datstat'        changed NextPlot property to "new" so we can't plot into control window.
+'conv_bar2'       ''        ''      & mlapp proj updated to 2018a.
+'findsaccs_gui'   ''        ''        ''                '' 
+
+'rd'        properly avoid filtering st and sv data.
+'findsaccs' now separates closely occurring saccades.
+
+'ao_deblink' automatically extends deblink zone +/-50 msec.
+
+'zoomtool' now uses 'grapcopy' to select one axis from a multi-axis fig.
+
+created:
+'azel.mlapp'   GUI to change view azimuth & elevation (similar to 'rotplot').
+'campos.mlapp' GUI to change camera position.
+
+
+Late Feb - 13 March 2019:
+Live (i.e. continuously updating) sliders for 'rotplot' and 'colrpick'. Neat!
+'cal' now allows zero adjustment w/o also having to perform scaling.
+'datstat' don't remember. no code changes, so it was probably GUI.
+'chooseKB' fix for when no keyboard is found by matching name strings.
+'zoomxout','zoomyout' cleaned out old useless code.
+
+
+18 Feb 2019:
+fixed 'edf2bin' to allow cases when there are no saccades or fixations in the
+"_extras" file.
+
+8 Feb 2019:
+cleaned up 'grapcopy' code, added optional output to destination axis window.
+
+7 Feb 2019:
+updated 'findwind' to allow selection between searching Name and Tag fields.
+
+6 Feb 2019:
+updated 'nafx_act' and 'nafx_gui' to handle change in name of "EM Data Manager"
+window to "EM Data".
+
+5 Feb 2019:
+fixed 'edf2bin' to not panic if sample frequency string (e.g."500") appears
+elsewhere in the message string being interpreted (most likely due to that
+"500" appearing in the time stamp of the message).
+
+Restored 'edf2bin' ability (via user prompt) to concatenate sub-records in
+a multi-record EDF file.

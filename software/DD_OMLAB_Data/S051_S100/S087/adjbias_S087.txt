@@ -1,0 +1,51 @@
+
+% S087
+%
+% Files: 1-OU ±15; 2-OU 0; 3-OU 0->20; 4-OU 0->-20; 5-OU 0/25/30; 6-8-Vrg F->1/2->N;
+% 9-Vrg f/N/F/N; 10-OU/LE/RE; 11-OU 0
+
+
+S087_1.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_2.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_3.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_4.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_5.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_6.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_7.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_8.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_9.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_10.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+
+S087_11.dat 2 IR rtrv
+rh 0 1 1
+lh 0 1 1
+

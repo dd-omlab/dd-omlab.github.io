@@ -1,0 +1,105 @@
+%% Main Structure. emData is a Class, so it has 'properties', 
+%% not 'fields'. But functionally they are fields.
+%% This is created by 'rd', using the data file and the adjustbias file.
+%% For EDF data, we use the '_extras.mat' file to get sacc, fix, and
+%% blink data as determined by the tracker algorithms. 
+%% NOTE that these tracker-determined position values are NOT post-facto
+%% calibrated, so they are only as good as your tracker's calibration.
+
+emData struct with properties:
+         recmeth: 'vid'
+     start_times: 1132238
+      stop_times: 1185288
+        filename: 'mms1124_g1.bin'
+        pathname: '/Users/jacobs/OMLab/DATA/mms1124_g/mms1124_g1/'
+        comments: ''
+      chan_names: {'lh'  'rh'  'lv'  'rv'  'hh'  'hv'  'rp'  'lp'  'dd'}
+         vframes: [1×1 struct]
+    calibrations: []
+       samp_freq: 500
+        numsamps: 26525
+         h_pix_z: 960
+       h_pix_deg: 37.6900
+         v_pix_z: 540
+       v_pix_deg: 43.8000
+         camdist: [1×1 struct]
+              rh: [1×1 struct]
+              lh: [1×1 struct]
+              rv: [1×1 struct]
+              lv: [1×1 struct]
+              rt: [1×1 struct]
+              lt: [1×1 struct]
+              rp: [1×1 struct]
+              lp: [1×1 struct]
+              dd: [1×1 struct]
+              hh: [1×1 struct]
+              hv: [1×1 struct]
+              st: [1×1 struct]
+              sv: [1×1 struct]
+             st2: [1×1 struct]
+             sv2: [1×1 struct]
+             st3: [1×1 struct]
+             sv3: [1×1 struct]
+             st4: [1×1 struct]
+             sv4: [1×1 struct]
+              ds: [1×1 struct]
+              tl: [1×1 struct]
+         digdata: []
+        digdata2: []
+        digdata3: {}
+        digdata4: {}
+           other: {}
+          other2: {}
+          other3: {}
+          other4: {}
+          
+          
+%% Substructures:
+
+channel data (e.g. 'rh') struct with fields:
+             pos: [42226×1 double]
+         channel: 'rh'
+    chan_comment: []
+      unfiltered: [42226×1 double]
+     filt_params: [1×1 struct]
+        saccades: [1×1 struct]
+           blink: [1×1 struct]
+        fixation: [1×1 struct]
+
+
+filt_params struct with fields:
+         type: 'butterworth'
+        order: 4
+       cutoff: 25
+    samp_freq: 500
+
+
+fixation struct with fields:
+    paramtype: 'EDF_PARSER'
+      fixlist: [1×1 struct] with fields:
+		   start: [1×195 double]
+			 end: [1×195 double]
+			 dur: [1×195 double]
+		startpos: [1×195 double]
+		   pupil: [1×195 double]
+
+          
+saccade struct with fields:
+    paramtype: 'EDF_PARSER'
+     sacclist: [1×1 struct] with fields:
+       start: [1×194 double]
+         end: [1×194 double]
+         dur: [1×194 double]
+    startpos: [1×194 double]
+      endpos: [1×194 double]
+        ampl: [1×194 double]
+        pvel: [1×194 double]
+
+
+blink struct with fields:
+    paramtype: 'EDF_PARSER'
+    blinklist: [1×1 struct] with fields:
+    start: [1×8 double]
+      end: [1×8 double]
+      dur: [1×8 double]
+

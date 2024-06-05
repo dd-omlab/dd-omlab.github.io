@@ -1,0 +1,21 @@
+SUBJECT: GR
+
+BOTH EYES:
+001- 002) fixation in the dark, without and with imaginary target [15" x 2]
+
+RIGHT EYE:
+003- 008) fixation of a static target at +5ø, +10ø, +15ø, +20ø, +25ø from primary position. [15" x 5]
+009- 014) fixation of a static target at -5ø, -10ø, -15ø, -20ø, -25ø, 0ø from primary position. [15" x 6]
+014) pursuit 10ø/sec, +/- 25ø. [60" x 1]
+
+LEFT EYE:
+015- 020) fixation of a static target at 0ø, +5ø, +10ø, +15ø, +20ø, +25ø from primary position. [15" x 6]
+021- 026) fixation of a static target at 0ø, -5ø, -10ø, -15ø, -20ø, -25ø from primary position. [15" x 6]
+027) pursuit 10ø/sec, +/- 25ø. [60" x 1]
+
+BOTH EYES:
+028- 033) fixation of a static target at 0ø, +5ø, +10ø, +15ø, +20ø, +25ø from primary position. [15" x 6]
+034- 038) fixation of a static target at 0ø, -5ø, -10ø, -15ø, -20ø, (-25ø) from primary position. [15" x 6]
+039) pursuit 10ø/sec, +/- 25ø. [60" x 1]
+
+Coil #08 on right eye; coil #09 on left eye (broken during the experiment)

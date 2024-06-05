@@ -1,0 +1,4 @@
+Files (1-6).DAT headers are incorrect.  
+The sampling frequency (SPLF) should be 400 Hz.
+
+After loading files 1-6, correct using, samp_freq = 2*samp_freq;

@@ -1,0 +1,37 @@
+Install OMtools:
+You can always find the most recent version of OMtools on box.com at:
+https://app.box.com/s/n68e0sq0i63p3r1st2a3cs8afcv0somg
+
+Unzip the OMtools.zip archive. Drag the "install_omtools" file into the MATLAB command window. Follow the prompts to complete the installation. 
+
+(You can also copy the "OMtools" folder to your personal MATLAB directory, which should be in your home "Documents" folder and then drag OMtools/omtoolsdirs/omstart.m into the command window). 
+
+The installation will add all the necessary OMtools paths to your MATLAB path (type "pathtool" to examine) and create a directory named "omtools_prefs" in your home MATLAB directory. This is where all your OMtools and BP_EM custom settings will be stored.
+
+To verify the installation, type "omstart". You should see something like this:
+
+Checking OMtools...
+OMtools date:  25 Jan 2021 (You have the current version)
+Installed in:  /Users/jacobs/Documents/MATLAB/OMtools
+OMtools prefs: /Users/jacobs/Documents/MATLAB/omtools_prefs/omprefs
+Data folder:   /OMlab/Data. Type dataroot('w') to select a new location.
+OMtools is on the MATLAB path. Type ompath('clear') to remove it.
+Starting MATLABWindow...
+ 
+Checking BP_EM and EL_suppt...
+BP_EM    date: 19 Jan 2021 (You have the current version)
+EL_suppt date: 20 Jan 2021 (You have the current version)
+
+
+
+Data:
+At the conclusion of each recording, BP_EM experiments copy the data recorded on the Eyelink computer to the computer running MATLAB. This file has the extension ".edf" and is placed in the directory associated with the experiment (organised by subject ID, experiment type, and series number). This folder will also contain a log file (".txt" extension) and a results file (".mat"). These will be necessary for data analysis.
+
+To read the data into MATLAB, you need to convert it typing "edf2bin", which is a program in the "rd" directory in OMtools. This conversion will create a new data file with extension ".bin", as well as several associated files containing information about the data (timing, messages, calibration values).
+
+Type "datstat" to open the GUI controlling data loading (titled "EM Data"). You will see several controls that determine post-processing options. The default is to leave "Filter", "Adjust bias" and "Deblink" checked.
+
+Click the "Read" button and navigate the open file dialog to the directory where the desired ".bin" is stored. As the data loads you will see a brief summary of the data (channels, duration, comments, etc.). The name of the data will appear in the listbox on the left side of the GUI.
+
+If this is the first time you are interacting with this data, you will probably need to calibrate it. Type "cal" at the command line, and follow the instructions on the screen (refer to the calibration document for details).
+

@@ -1,0 +1,9 @@
+% MDFX/RSH060
+
+% fix @0deg, far
+RSH01_1.txt 1 coil ascii	488
+  rh 8368 60
+
+% fix @0deg, far
+RSH01_7.txt 1 coil ascii	488
+  rh 8368 60

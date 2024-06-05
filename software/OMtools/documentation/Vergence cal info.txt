@@ -1,0 +1,45 @@
+Vergence calibration 
+Author: Jonathan Jacobs
+Draft : 23 Nov 2020
+
+Updated: 27 Nov 2020 (added "Please reselect data")
+
+
+---
+Order of Operations:
+
+1) Preparation
+Use 'po_gui' to create 'poem' (PlusOptix eye-movement) data from PO .csv and MATLAB '_results.mat' file for the data you wish to analyze. It will run 'po_analyze', which creates the following files which are necessary for the next step ('vrgcal_gui') to run:
+  xxx_poem.bin
+  xxx_poem_results.mat
+  adjbias_xxx_poem.txt
+  
+1a) [necessity to be determined]
+Calibrate the '_poem.bin' data using 'cal'. This will give us our starting (single-distance) base which we will then expand to all distances.
+
+2) Vergence Calibration
+Use 'datstat' to load the 'xxx_poem.bin' data created by 'po_analyze'
+Run 'vrgcal_gui' and select the data name from the 'Current data' popup menu.
+It will look for the vrgbias and both '_results' files.
+If it cannot find either '_results' file, you will be notified, and calibration will quit.
+If there is not an existing vrgbias file, you will be notified. Click 'gen' to create one.
+'vrgcal_gui' will create one and tell you "Please reselect data". Choose "Refresh menu" from the "Current data" menu, and then reselect the data you wish to analyze.
+
+Click "Create Cal" to launch 'vrgcal.m'. You will be guided through calibrating at each vergence distance that was saved in the ML '_results.mat' file when the data was recorded. (ONLY IF THE EXPERIMENT WAS PERFORMED USING FG_suite!)
+You will do this for each channel ('rh','lh').
+Paste the formatted command-line text outputs from 'vrgcal' into the appropriate lines in the 'vrgbias' text file.
+NOTE: A '_poem_results.mat' file will be created (or updated) with the information generated while performing these calibrations.
+
+Click "Apply Cal" to load and apply the updated vergence calibrations. It will plot a figure showing the effects of calibration on each channel. (This presentation will continue to evolve.) 
+
+---
+Finally, please remember:
+  Keep your data directories stringently organized, with all files named as already explained. 
+  Nothing will work correctly otherwise.
+  
+  Once 'po_analyze' creates its files, you do NOT need to run it again for that data
+  (unless you decide to delete those '_poem' files and recreate them from scratch).
+  You can simply start at the 'vrgcal_gui' step.
+  
+  This is still a work in progress. Your patience is appreciated.
+  

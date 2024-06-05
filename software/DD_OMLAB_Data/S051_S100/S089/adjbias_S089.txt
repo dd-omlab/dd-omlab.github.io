@@ -1,0 +1,105 @@
+% S089, AN
+% coil
+% Files: 1- OU; 2-OD; 3-OS; 4-OD/OS/OD/OS; 5-verg f>N; 6-sacc hor & vrt ±15;
+%		7-SP hor & vrt ±15; 8-VVOR hor & vrt; 9-cardinal gaze pos;
+%		10-gaze down & diagonally up-right
+
+S089_1.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+
+S089_2.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+
+S089_3.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+
+S089_4.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+
+S089_5.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+
+S089_6.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+
+S089_7.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+
+S089_8.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0
+ 
+S089_9.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 
+ 
+S089_10.dat 8 coil rtrv
+  rh 0 
+  lh 0 
+  hh 0 
+  rv 0 
+  lv 0 
+  hv 0 
+  rt 0 
+  lt 0 

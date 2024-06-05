@@ -1,0 +1,39 @@
+Contents of '_results.mat'
+
+as created at experiment recording time:
+              h: [1×1 struct]
+    testresults: [1×1 struct]
+         tgtpos: [1×16 struct]
+              t: [1×1 struct]
+
+
+as modified by 'find_tgt_segs.m':
+               h: [1×1 struct]
+     testresults: [1×1 struct]
+          tgtpos: [1×16 struct]
+               t: [1×1 struct]
+       ml_starts: [14×1 double]
+    ml_startinds: [14×1 double]
+       ml_tgtpos: [14×1 struct]
+        ml_stops: [14×1 double]
+     ml_stopinds: [14×1 double]
+
+
+as modified by 'po_analyze.m' (PO->ML conversion): 
+      testresults: [1×1 struct]
+           tgtpos: [1×17 struct]
+             leds: [1×1 struct]
+            times: [1×1 struct]
+               fs: 50
+               ts: [2928×1 double]
+    po_mlstartind: 429
+       po_mlstart: 8.5800
+     po_mlstopind: 2787
+        po_mlstop: 55.7400
+        po_starts: [15×1 double]
+    po_tgtchanges: [15×1 double]
+        po_tgtpos: [1×15 struct]
+           mlsync: 8.6340
+        ml_starts: [15×1 double]
+    ml_tgtchanges: [15×1 double]
+        ml_tgtpos: [1×15 struct]
