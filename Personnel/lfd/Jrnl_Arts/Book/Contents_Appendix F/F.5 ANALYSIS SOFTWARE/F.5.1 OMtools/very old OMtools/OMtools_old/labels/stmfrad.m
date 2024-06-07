@@ -1,0 +1,1 @@
+% stmfrad.m Plots +/-0.5 dashed lines on stmtemp=plot(t,stm +.5,'w:',t,stm-.5,'w:');set(temp, 'Color', [0.75 0.75 0.75]) % set to be whatever rgb triplet you wish% 0.75 is light grayclear temp % since this executes in the base workspace, rather than as a function
