@@ -1,0 +1,104 @@
+								OMLAB Data (Using OMtols)
+
+1. Check that there is an 'adjbias_name.txt' file
+	If not, generate one using biasgen or copy another and edit it for proper file names
+2. Check that the adjbias file has cal numbers (i.e, not "0's" and "1's")
+	If not, load the file (see below) and use 'cal' on the first data file to get monocular bias and calibration points for the right eye and on the second file, for the left eye; copy the results onto the appropriate lines in the adjbias file; then, copy them to all listed data files and save the adjbias file. 
+3. Load using 'rd'
+	If a '.lab' file fails to load, and 'rd' prompts you for the number of analog points, enter '1000' and it will load. Problem stems from an older format for LABVIEW data.
+	
+	If a '.txt' file fails to load, the data files have the old MAC line ending: CR. Changing them to the NEW Unix ending, LF, will fix the problem.
+	What happens with the old line ending is that MATLAB reads in the file as a single column rather than respecting the proper number of them.
+	There is a program, LineBreak, on MacUpdate.com that will automate this. When you run it the first time, set all the checkboxes on so that it looks like the screenshot, 'LineBreak Settings.pdf'. Then simply drop the folders containing the text files onto the window. It will change all text files it finds.
+4. View loaded data using the relevant programs:
+	‘plth’ (‘plthst’) or ‘pltv’ (‘pltvst’) for horizontal or vertical data (plus horizontal or vertical stimulus data)
+	‘plthv’ (‘plthvst’) for horizontal and vertical data (plus horizontal and vertical stimulus data)
+	‘plthv’ (‘plthvtst’) for horizontal, vertical, and torsional data (plus horizontal and vertical stimulus data)
+	‘hold on’ and ‘plot(t, st, ‘r’)’ to add horizontal stimulus data to plots lacking them
+	‘hold on’ and ‘plot(t, stv, ‘r--’)’ to add vertical stimulus data to plots lacking them
+5. Analyze data using:
+	‘zoomtool’, ‘nafx’, and other OMtools software
+
+								ORIGINAL NIH Data
+
+TO PREPARE ORIGINAL NIH FILES FOR MATLAB & OMtools
+1. Copy files from CD into proper folders on HD
+	a) In Control Panel:Memory, Turn off virtual memory (if it was on-OS 8.6); restart Mac
+2. For coil data files:
+	Use 'biasgen' to create adjbias.txt (choose r for adjbias.rcl or c for adjbias.lin or
+		i for adjbias.ext)
+   [initials? b(h,v)#####_, name? #####, comments? filedate, records? 8,
+   		r (i), b (a), 20, 200, {(I)nterleaved or (C)ontigulus? C}, 6 (3)(4), st,rh,lh,sv,rv,lv
+   		(st,rh,lh)(rh,lh,rv,lv)]
+   For Ober data files:
+	Use the 'adjbias.skel' file in 'Ober' folder and alter as necessary for each data folder
+3. With BBEdit memory set to 60Mb, rename files #####_(8-1) to n####_(8-1); edit to remove
+		ll 1-14 (or for Ober files,ll 1-4 and remove data in Marker col*);
+		save (Cmd-S, Cmd-W) (can load files 1-7 simultaneously into BBEdit)
+		*There is a BBEdit Replace Macro called 'NIH OberMkrStrp' = '   O[0-9][0-9]*$'
+		NOTE: Data files must be BBEdit files with Type=text (Use Snitch in OS 9.2.2) 
+	a) Set MatLab memory to 100Mb for larger files
+	b) Restore virtual memory (OS 8.6); restart Mac
+NOTE: The above preparation has been done and references to old Mac OS's are no longer relevant.
+------------------------------------------------------------------------------------------------
+	
+TO LOAD NIH FILES INTO MATLAB USING OMTOOLS SOFTWARE
+1. For coil data files:
+	MatLab n#####_(8-1) files; use 'clear all; rdnih ('b' is default) [or 'rdnih('h')' or
+	'rdnih('v')'], sample at 200Hz, SAVE AS BINARY h,v, or b#####_(8-1)_200.bin (b####_(8-1) done automatically)
+	NOTE: 'rdnih' runs too slowly; boot up in OS 9.2.2 and things run 10x faster! (OS X.2)
+   For Ober data files:
+	MatLab n(v)#####_(1-4,8)(5,6) files; use 'clear all; rdnih or rdnihobr ('b' is default) [or 	'rdnihobr('v')'], sample at 300Hz, SAVE AS BINARY b(v)#####_(1-4,8)(5,6)_300.bin
+	(b(v)#####_(1-4,8)(5,6) done automatically)
+
+2. Edit adjbias.xxx' files with TextWrangler or BBEdit; Find and Replace All '.bin (.txt)' with '_200.bin (.txt)'
+		or '_300.bin (.txt)'save as 'Mac', 'TextWrangler', 'BBEdit' or save and Get Info -> Batch on adjbias.txt
+		and change Creator to TextWrangler or BBEdit; Update Changed Info
+
+TO LOAD DATA MANUALLY (Unusual coil data or Ober data)
+1. Use 'load2'
+2. lh=filename(:,2);	[all rows of col 2]	(lv=.....(:,3);)
+3. rh=filename(:,4);	[all rows of col 4]	(rv=.....(:,5);)
+4. a=[lh lv rh rv];			[4 cols of data]	(a=[sv rv lv];)
+5. size(a)
+For ASCII or BINARY files from Ober data:
+6. save filename_freq.txt a -ascii
+	or
+   fid = fopen(filename_freq.bin, 'w', 'l');
+	fwrite(fid, a, 'float');
+	fclose(fid);
+For ASCII or BINARY files from coil data:
+6. b=a(1:5:val of size(a),:);	[decimate coil data by factor of 5]
+7. size(b)				[should be 1/5th of size(a)]
+8. save filename_200.txt b -ascii	[where the 200=1/5 of 1000]
+	or plthv
+	
+   fid = fopen(filename_200.bin, 'w', 'l');
+	fwrite(fid, b, 'float');
+	fclose(fid);
+
+FOR SINCORRECTED CALIBRATION (ROBINSON COIL) [NIH]
+1. Use 'biasgen' to make adjbias file for rcoil (or copy adjbias.rcl to adjbias.txt)
+2. Use 'rd' to load the rh or lh monoc cal data
+3. Plot rh or lh ['plot(rh)'] and 'hold on' 'plot(st,'r')'
+4. Use 'zoomtool' to determine offset & the scale factor @ CALPOINT (positive-negative/2)
+	If S does not fixate targets in one direction, use the other for the 20deg cal factor
+	If S does not fixate any targets, set 'Inf' to '20' in adjbias file
+5. Copy the 2 values (1 offset & 1 scale factor) from "4" into adjbias.txt (+/- adjbias.rcl)
+      [Do this for both rh and lh]
+      
+FOR EXTENDED CALIBRATION (Ober Data)
+1. Copy adjbias.ext to adjbias.txt
+2. Use 'rd' to load the rh or lh monoc cal data
+3. Use 'pickdata' to pick rh or lh
+4. Use 'os' ('cal') to determine ofset and 5 pairs of scale factors (0, ±5, ±10, ±15, ±20, ±25°)
+5. Copy the 11 values (1 offset & 10 scale factors) from "4" into adjbias.txt (& adjbias.ext)
+      [Do this for both rh and lh]
+
+FOR LINEAR CALIBRATION (Ober Data - if unable to use Extended Calibration) [NH]
+1. Copy adjbias.lin to adjbias.txt
+2. Use 'rd' to load the rh or lh monoc cal data
+3. Use 'pickdata' to pick rh or lh
+4. Use 'os' ('cal') to determine offset
+5. Copy the offset from "4" into adjbias.txt (& adjbias.lin)
+      [Do this for both rh and lh]
